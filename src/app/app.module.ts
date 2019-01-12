@@ -11,6 +11,7 @@ import { TodoReducer } from './store/reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { TodoEffects } from './store/effects/todo.effects';
 import { ErrorComponent } from './error/error.component';
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { ErrorComponent } from './error/error.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    StoreModule.forRoot({todos: TodoReducer}),
+    StoreModule.forRoot(reducers),
     EffectsModule.forRoot([TodoEffects])
   ],
   providers: [],
