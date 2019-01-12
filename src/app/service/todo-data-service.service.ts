@@ -12,7 +12,7 @@ export class TodoDataService {
   constructor(private http: HttpClient) { }
 
   addTodo(todo: Todo) {
-    this.todos.push(todo);
+    return this.http.post("http://localhost:3000/data", todo);
   }
 
   fetchTodos() {
