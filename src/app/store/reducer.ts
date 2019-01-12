@@ -1,5 +1,4 @@
 import * as TodoActions from "../store/actions"
-import { TodoDataService } from '../service/todo-data-service.service';
 import { Todo } from '../model/todo';
 
 const initialState: Todo[] = [];
@@ -13,8 +12,20 @@ export function TodoReducer(state = initialState, action) {
             return state.concat(todos);
         }
 
+        case TodoActions.TOGGLE_TODO: {
+            const selectedTodo = action.payload;
+            return updateTodo(state, selectedTodo);
+        }
+
         default: {
             return state;
         }
     }
+}
+
+const updateTodo = (todos: Todo[], selectedTodo: Todo) => {
+  return todos.map(
+      (todo) => todo.id === selectedTodo.id 
+      ? Object.assign({}, selectedTodo, {isCompleted: !selectedTodo.isCompleted})
+      :todo);
 }

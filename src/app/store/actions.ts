@@ -4,6 +4,7 @@ import { Todo } from '../model/todo';
 export const ADD_TODO = 'ADD_TODO' ;
 export const UPDATE_TODOS_STATE = 'UPDATE_TODOS_STATE' ;
 export const FETCH_TODOS = 'FETCH_TODOS' ;
+export const TOGGLE_TODO = 'TOGGLE_TODO' ;
 export const ADD_TODO_TO_SERVER = 'ADD_TODO_TO_SERVER' ;
 
 export class FetchTodos implements Action {
@@ -12,6 +13,11 @@ export class FetchTodos implements Action {
 
 export class AddTodoToServer implements Action {
     readonly type = ADD_TODO_TO_SERVER;
+    constructor(readonly payload: Todo) {};
+}
+
+export class ToggleTodo implements Action {
+    readonly type = TOGGLE_TODO;
     constructor(readonly payload: Todo) {};
 }
 

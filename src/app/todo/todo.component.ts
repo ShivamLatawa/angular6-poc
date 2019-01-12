@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {of, Observable} from 'rxjs';
-
-import {TodoDataService} from "../service/todo-data-service.service";
-import { Todo } from '../model/todo';
-import {FetchTodos, AddTodoToServer} from "../store/actions";
-import {TodoListState} from "../store/state";
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+
+import { TodoDataService } from "../service/todo-data-service.service";
+import { Todo } from '../model/todo';
+import { FetchTodos, AddTodoToServer, ToggleTodo } from "../store/actions";
+import { TodoListState } from "../store/state";
 
 @Component({
   selector: 'app-todo',
@@ -16,7 +16,6 @@ import { Store } from '@ngrx/store';
 
 export class TodoComponent implements OnInit{
 
-  todos: Todo[] = [];
   todoListState$: Observable<Todo[]>;
 
   ngOnInit() {
@@ -25,19 +24,25 @@ export class TodoComponent implements OnInit{
     });
   }
 
-  constructor(private todoDataService: TodoDataService, private store: Store<TodoListState>) {
+  constructor(
+    private todoDataService: TodoDataService,
+    private store: Store <TodoListState> ) {
+
     this.store.dispatch(new FetchTodos());
   }
 
-  todoEntered(event: any) {
-    const todo = {id:Math.ceil(Math.random()*100), description: event.target.value, isCompleted: false};
+  todoEntered(event: KeyboardEvent) {
+    const todo = {
+      id: Math.ceil(Math.random() * 100),
+      description: (<HTMLInputElement>event.target).value,
+      isCompleted: false
+    };
+
     this.store.dispatch(new AddTodoToServer(todo));
   }
 
-  toggleTodo(selectedTodo) {
-
-    //toggling with service instead of actions (other approach) 
-    this.todoDataService.toggleTodo(selectedTodo);
+  toggleTodo(selectedTodo: Todo) {
+    this.store.dispatch(new ToggleTodo(selectedTodo));
   }
 
 }
