@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
-import { TodoDataService } from "../service/todo-data-service.service";
 import { Todo } from '../model/todo';
 import { FetchTodos, AddTodoToServer, ToggleTodo } from "../store/actions";
 import { TodoListState } from "../store/state";
