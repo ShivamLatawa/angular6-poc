@@ -11,7 +11,7 @@ import { TodoListState } from "../store/state";
   selector: 'app-todo',
   templateUrl: './todo.component.html',
   styleUrls: ['./todo.component.scss'],
-  providers: [TodoDataService]
+  providers: []
 })
 
 export class TodoComponent implements OnInit{
@@ -24,10 +24,7 @@ export class TodoComponent implements OnInit{
     });
   }
 
-  constructor(
-    private todoDataService: TodoDataService,
-    private store: Store <TodoListState> ) {
-
+  constructor(private store: Store <TodoListState> ) {
     this.store.dispatch(new FetchTodos());
   }
 
