@@ -17,14 +17,14 @@ export class TodoComponent implements OnInit{
 
   todoListState$: Observable<Todo[]>;
 
+  constructor(private store: Store <TodoListState> ) {
+    this.store.dispatch(new FetchTodos());
+  }
+
   ngOnInit() {
     this.todoListState$ = this.store.select((state) =>  {
       return state.todos;
     });
-  }
-
-  constructor(private store: Store <TodoListState> ) {
-    this.store.dispatch(new FetchTodos());
   }
 
   todoEntered(event: KeyboardEvent) {
