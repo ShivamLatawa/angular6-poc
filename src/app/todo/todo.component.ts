@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { TodoDataService } from "../service/todo-data-service.service";
+import { Component } from '@angular/core';
+import { TodoDataService } from '../service/todo-data-service.service';
 import { Todo } from '../model/todo';
 
 @Component({
@@ -27,7 +27,7 @@ export class TodoComponent {
     this.todoDataService.addTodo(todo).subscribe(() => {
       this.todoDataService.fetchTodos().subscribe(todos => {
         this.todoDataService.setTodos(todos);
-      })
+      });
     });
   }
 

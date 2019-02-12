@@ -1,9 +1,14 @@
-<p>
-  Todo
-</p>
+<div class="todos">
+  <h1 class="header">
+    todos
+  </h1>
 
-<input type="text" (keyup.enter)="todoEntered($event)">
+  <input type="text" (keyup.enter)="todoEntered($event)" class="todoInput" placeholder="What needs to be done?">
 
-<ul>
-  <li (click)="toggleTodo(todo)" [ngClass]="{'strike': todo.isCompleted}" *ngFor="let todo of getTodos()">{{todo.description}}</li>
-</ul>
+  <ul class="todosList">
+    <li class="todoItem" (click)="toggleTodo(todo)" [ngClass]="{'strike': todo.isCompleted}" *ngFor="let todo of getTodos()">{{todo.description}}</li>
+  </ul>
+
+  <footer *ngIf=getTodos().length></footer>
+  
+</div>

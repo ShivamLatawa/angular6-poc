@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Todo } from "../model/todo";
+import { Todo } from '../model/todo';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -12,11 +12,11 @@ export class TodoDataService {
   constructor(private http: HttpClient) { }
 
   addTodo(todo: Todo) {
-    return this.http.post("http://localhost:3000/data", todo);
+    return this.http.post('http://localhost:3000/data', todo);
   }
 
   fetchTodos() {
-    return this.http.get("http://localhost:3000/data");
+    return this.http.get('http://localhost:3000/data');
   }
 
   getAllTodos() {
