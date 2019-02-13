@@ -6,7 +6,15 @@
   <input type="text" (keyup.enter)="todoEntered($event)" class="todoInput" placeholder="What needs to be done?">
 
   <ul class="todosList">
-    <li class="todoItem" (click)="toggleTodo(todo)" [ngClass]="{'strike': todo.isCompleted}" *ngFor="let todo of getTodos()">{{todo.description}}</li>
+    <div *ngFor="let todo of getTodos()" class="todoItemWrapper">
+        <div class="todoItem" 
+        (click)="toggleTodo(todo)" 
+        [ngClass]="{'strike': todo.isCompleted}">
+        {{todo.description}}
+    </div>
+    <div class="deleteTodo" (click)="deleteTodo(todo)">X</div>
+    </div>
+    
   </ul>
 
   <footer *ngIf=getTodos().length></footer>

@@ -48,11 +48,22 @@
         box-sizing: border-box;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
+    }
+
+    .todoItemWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 
         .todoItem {
             padding: 15px 15px 15px 60px;
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-            list-style: none;
+            width: 500px;
+        }
+
+        .deleteTodo {
+            position: relative;
+            right: 20px;
         }
     }
 

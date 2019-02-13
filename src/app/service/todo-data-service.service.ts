@@ -31,4 +31,9 @@ export class TodoDataService {
     todo.isCompleted = !todo.isCompleted;
     return todo;
   }
+
+  deleteTodo(todo) {
+    const todoId = todo.id;
+    return this.http.delete(`http://localhost:3000/data/${todoId}`);
+  }
 }

@@ -31,6 +31,14 @@ export class TodoComponent {
     });
   }
 
+  deleteTodo(selectedTodo: Todo) {
+    this.todoDataService.deleteTodo(selectedTodo).subscribe(() => {
+      this.todoDataService.fetchTodos().subscribe(todos => {
+        this.todoDataService.setTodos(todos);
+      });
+    });
+  }
+
   getTodos() {
     return this.todoDataService.getAllTodos();
   }
