@@ -2,22 +2,27 @@
   "data": [
     {
       "id": 90,
-      "description": "First todo ever",
+      "description": "Create Todo",
       "isCompleted": false
     },
     {
-      "id": 58,
-      "description": "Test",
+      "id": 12,
+      "description": "Mark Todo as complete",
       "isCompleted": false
     },
     {
-      "id": 33,
-      "description": "Test Todo",
+      "id": 98,
+      "description": "Delete todo",
       "isCompleted": false
     },
     {
-      "id": 13,
-      "description": "aksjd",
+      "id": 31,
+      "description": "Clear completed todos",
+      "isCompleted": false
+    },
+    {
+      "id": 84,
+      "description": "Clear input field after todo creation",
       "isCompleted": false
     }
   ]
