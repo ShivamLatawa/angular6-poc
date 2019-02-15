@@ -29,6 +29,12 @@ export class TodoComponent {
         this.todoDataService.setTodos(todos);
       });
     });
+
+    this.clearInput();
+  }
+
+  clearInput() {
+    ( <HTMLInputElement> event.target).value = '';
   }
 
   deleteTodo(selectedTodo: Todo) {
@@ -37,6 +43,12 @@ export class TodoComponent {
         this.todoDataService.setTodos(todos);
       });
     });
+  }
+
+  clearCompletedTodos() {
+    this.getTodos()
+        .filter(todo => todo.isCompleted === true)
+        .map(todo => this.deleteTodo(todo));
   }
 
   getTodos() {

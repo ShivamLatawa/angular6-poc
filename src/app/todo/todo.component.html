@@ -17,6 +17,8 @@
     
   </ul>
 
-  <footer *ngIf=getTodos().length></footer>
+  <footer *ngIf=getTodos().length>
+    <div class="clearCompleted" (click)="clearCompletedTodos()">Clear completed</div>
+  </footer>
   
 </div>
