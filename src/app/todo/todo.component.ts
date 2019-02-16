@@ -11,9 +11,11 @@ import { Todo } from '../model/todo';
 
 export class TodoComponent {
 
+  todos: Todo[];
+
   constructor(private todoDataService: TodoDataService) {
     this.todoDataService.fetchTodos().subscribe(todos => {
-      this.todoDataService.setTodos(todos);
+      this.todos = todos as Todo[];
     });
   }
 
@@ -26,7 +28,7 @@ export class TodoComponent {
 
     this.todoDataService.addTodo(todo).subscribe(() => {
       this.todoDataService.fetchTodos().subscribe(todos => {
-        this.todoDataService.setTodos(todos);
+        this.todos = todos as Todo[];
       });
     });
 
@@ -40,7 +42,7 @@ export class TodoComponent {
   deleteTodo(selectedTodo: Todo) {
     this.todoDataService.deleteTodo(selectedTodo).subscribe(() => {
       this.todoDataService.fetchTodos().subscribe(todos => {
-        this.todoDataService.setTodos(todos);
+        this.todos = todos as Todo[];
       });
     });
   }
@@ -52,7 +54,7 @@ export class TodoComponent {
   }
 
   getTodos() {
-    return this.todoDataService.getAllTodos();
+    return this.todos;
   }
 
   toggleTodo(selectedTodo: Todo) {

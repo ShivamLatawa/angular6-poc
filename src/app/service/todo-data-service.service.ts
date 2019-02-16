@@ -19,20 +19,12 @@ export class TodoDataService {
     return this.http.get('http://localhost:3000/data');
   }
 
-  getAllTodos() {
-    return this.todos;
-  }
-
-  setTodos(todos) {
-    this.todos = todos;
-  }
-
-  toggleTodo(todo) {
+  toggleTodo(todo: Todo) {
     todo.isCompleted = !todo.isCompleted;
     return todo;
   }
 
-  deleteTodo(todo) {
+  deleteTodo(todo: Todo) {
     const todoId = todo.id;
     return this.http.delete(`http://localhost:3000/data/${todoId}`);
   }
