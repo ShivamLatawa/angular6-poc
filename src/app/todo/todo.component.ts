@@ -3,8 +3,8 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Todo } from '../model/todo';
-import { FetchTodos, AddTodoToServer, ToggleTodo } from "../store/actions";
-import { TodoListState } from "../store/state";
+import { FetchTodos, AddTodoToServer, ToggleTodo } from '../store/actions';
+import { TodoListState } from '../store/state';
 
 @Component({
   selector: 'app-todo',
@@ -13,7 +13,7 @@ import { TodoListState } from "../store/state";
   providers: []
 })
 
-export class TodoComponent implements OnInit{
+export class TodoComponent implements OnInit {
 
   todoListState$: Observable<Todo[]>;
 

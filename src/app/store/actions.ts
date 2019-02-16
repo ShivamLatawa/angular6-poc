@@ -1,4 +1,4 @@
-import {Action} from "@ngrx/store";
+import {Action} from '@ngrx/store';
 import { Todo } from '../model/todo';
 
 export const ADD_TODO = 'ADD_TODO' ;
@@ -13,15 +13,15 @@ export class FetchTodos implements Action {
 
 export class AddTodoToServer implements Action {
     readonly type = ADD_TODO_TO_SERVER;
-    constructor(readonly payload: Todo) {};
+    constructor(readonly payload: Todo) {}
 }
 
 export class ToggleTodo implements Action {
     readonly type = TOGGLE_TODO;
-    constructor(readonly payload: Todo) {};
+    constructor(readonly payload: Todo) {}
 }
 
 export class UpdateTodosState implements Action {
     readonly type = UPDATE_TODOS_STATE;
-    constructor(readonly payload: Todo[]) {};
+    constructor(readonly payload: Todo[]) {}
 }

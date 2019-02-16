@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Todo } from "../model/todo";
+import { Todo } from '../model/todo';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
@@ -16,18 +16,18 @@ export class TodoDataService {
   }
 
   fetchTodos() {
-    return this.http.get("http://localhost:3000/data");
+    return this.http.get('http://localhost:3000/data');
   }
 
   getAllTodos() {
     return this.todos;
   }
 
-  setTodos(todos) {
+  setTodos(todos: Todo[]) {
     this.todos = todos;
   }
 
-  toggleTodo(todo) {
+  toggleTodo(todo: Todo) {
     todo.isCompleted = !todo.isCompleted;
     return todo;
   }
