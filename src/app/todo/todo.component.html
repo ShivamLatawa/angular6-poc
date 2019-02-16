@@ -1,11 +1,24 @@
-<p>
-  Todo
-</p>
+<div class="todos">
+  <h1 class="header">
+    todos
+  </h1>
 
-<input type="text" (keyup.enter)="todoEntered($event)">
+  <input type="text" (keyup.enter)="todoEntered($event)" class="todoInput" placeholder="What needs to be done?">
 
-<div *ngIf="todoListState$ | async as todoListState">
-      <ul>
-        <li (click)="toggleTodo(todo)" [ngClass] = "{'strike': todo.isCompleted}" *ngFor="let todo of todoListState">{{todo.description}}</li>
-      </ul>
+  <ul class="todosList" *ngIf="todoListState$ | async as todoListState">
+    <div *ngFor="let todo of todoListState" class="todoItemWrapper">
+        <div class="todoItem" 
+        (click)="toggleTodo(todo)" 
+        [ngClass]="{'strike': todo.isCompleted}">
+        {{todo.description}}
+    </div>
+    <div class="deleteTodo">X</div>
+    </div>
+    
+  </ul>
+
+  <footer *ngIf="(todoListState$ | async)?.length">
+    <div class="clearCompleted">Clear completed</div>
+  </footer>
+  
 </div>
