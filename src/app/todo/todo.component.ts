@@ -29,13 +29,21 @@ export class TodoComponent implements OnInit {
 
   todoEntered(event: KeyboardEvent) {
     const todo = {
-      id: Math.ceil(Math.random() * 100),
+      id: Math.ceil(Math.random() * 10000),
       description: (<HTMLInputElement>event.target).value,
       isCompleted: false
     };
 
     this.store.dispatch(new AddTodoToServer(todo));
     this.clearInput();
+  }
+
+  clearCompleted() {
+    this.todoListState$
+        .subscribe((todos: Todo[]) => todos
+          .filter((todo) =>  todo.isCompleted)
+          .map((todo: Todo) => this.deleteTodo(todo)))
+        .unsubscribe();
   }
 
   toggleTodo(selectedTodo: Todo) {

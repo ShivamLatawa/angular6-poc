@@ -18,7 +18,7 @@
   </ul>
 
   <footer *ngIf="(todoListState$ | async)?.length">
-    <div class="clearCompleted">Clear completed</div>
+    <div class="clearCompleted" (click)="clearCompleted()">Clear completed</div>
   </footer>
   
 </div>
