@@ -35,6 +35,11 @@ export class TodoComponent implements OnInit {
     };
 
     this.store.dispatch(new AddTodoToServer(todo));
+    this.clearInput();
+  }
+
+  clearInput() {
+    (<HTMLInputElement>event.target).value = '';
   }
 
   toggleTodo(selectedTodo: Todo) {
