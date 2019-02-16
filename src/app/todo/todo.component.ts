@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 
 import { Todo } from '../model/todo';
-import { FetchTodos, AddTodoToServer, ToggleTodo } from '../store/actions';
+import { FetchTodos, AddTodoToServer, ToggleTodo, DeleteTodo } from '../store/actions';
 import { TodoListState } from '../store/state';
 
 @Component({
@@ -38,12 +38,16 @@ export class TodoComponent implements OnInit {
     this.clearInput();
   }
 
-  clearInput() {
-    (<HTMLInputElement>event.target).value = '';
-  }
-
   toggleTodo(selectedTodo: Todo) {
     this.store.dispatch(new ToggleTodo(selectedTodo));
+  }
+
+  deleteTodo(todo: Todo) {
+    this.store.dispatch(new DeleteTodo(todo));
+  }
+
+  clearInput() {
+    (<HTMLInputElement>event.target).value = '';
   }
 
 }

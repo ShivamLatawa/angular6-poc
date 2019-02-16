@@ -1,4 +1,4 @@
-import * as TodoActions from "../store/actions"
+import * as TodoActions from '../store/actions';
 import { Todo } from '../model/todo';
 
 const initialState: Todo[] = [];
@@ -9,7 +9,7 @@ export function TodoReducer(state = initialState, action) {
 
         case TodoActions.UPDATE_TODOS_STATE: {
             const todos = action.payload;
-            return state.concat(todos);
+            return [...todos];
         }
 
         case TodoActions.TOGGLE_TODO: {
@@ -27,5 +27,5 @@ const updateTodo = (todos: Todo[], selectedTodo: Todo) => {
   return todos.map(
       (todo) => todo.id === selectedTodo.id 
       ? Object.assign({}, selectedTodo, {isCompleted: !selectedTodo.isCompleted})
-      :todo);
-}
+      : todo);
+};

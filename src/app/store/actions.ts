@@ -6,6 +6,7 @@ export const UPDATE_TODOS_STATE = 'UPDATE_TODOS_STATE' ;
 export const FETCH_TODOS = 'FETCH_TODOS' ;
 export const TOGGLE_TODO = 'TOGGLE_TODO' ;
 export const ADD_TODO_TO_SERVER = 'ADD_TODO_TO_SERVER' ;
+export const DELETE_TODO = 'DELETE_TODO' ;
 
 export class FetchTodos implements Action {
     readonly type = FETCH_TODOS;
@@ -18,6 +19,11 @@ export class AddTodoToServer implements Action {
 
 export class ToggleTodo implements Action {
     readonly type = TOGGLE_TODO;
+    constructor(readonly payload: Todo) {}
+}
+
+export class DeleteTodo implements Action {
+    readonly type = DELETE_TODO;
     constructor(readonly payload: Todo) {}
 }
 
