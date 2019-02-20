@@ -43,7 +43,7 @@ export class TodoComponent implements OnInit {
   }
 
   deleteTodo(todo: Todo) {
-    this.store.dispatch(new DeleteTodo(todo));
+    this.store.dispatch(new DeleteTodo(todo.id));
   }
 
   clearInput() {

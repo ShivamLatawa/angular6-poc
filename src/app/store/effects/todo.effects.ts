@@ -37,7 +37,7 @@ export class TodoEffects {
   deleteTodo$: Observable<Action> = this.actions$.pipe(
     ofType(DELETE_TODO),
     mergeMap((action: any) => {
-      return this.http.delete(`http://localhost:3000/data/${action.payload.id}`)
+      return this.http.delete(`http://localhost:3000/data/${action.payload}`)
       .pipe(map(() => new FetchTodos()));
     })
     );

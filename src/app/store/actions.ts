@@ -24,7 +24,7 @@ export class ToggleTodo implements Action {
 
 export class DeleteTodo implements Action {
     readonly type = DELETE_TODO;
-    constructor(readonly payload: Todo) {}
+    constructor(readonly payload: number) {}
 }
 
 export class UpdateTodosState implements Action {
