@@ -17,11 +17,10 @@ export class TodoComponent implements OnInit {
 
   todoListState$: Observable<Todo[]>;
 
-  constructor(private store: Store <TodoListState> ) {
-    this.store.dispatch(new FetchTodos());
-  }
+  constructor(private store: Store <TodoListState> ) {}
 
   ngOnInit() {
+    this.store.dispatch(new FetchTodos());
     this.todoListState$ = this.store.select((state) =>  {
       return state.todos;
     });
