@@ -38,14 +38,6 @@ export class TodoComponent implements OnInit {
     this.clearInput();
   }
 
-  clearCompleted() {
-    this.todoListState$
-        .subscribe((todos: Todo[]) => todos
-          .filter((todo) =>  todo.isCompleted)
-          .map((todo: Todo) => this.deleteTodo(todo)))
-        .unsubscribe();
-  }
-
   toggleTodo(selectedTodo: Todo) {
     this.store.dispatch(new ToggleTodo(selectedTodo));
   }
@@ -58,4 +50,11 @@ export class TodoComponent implements OnInit {
     (<HTMLInputElement>event.target).value = '';
   }
 
+  clearCompleted() {
+    this.todoListState$
+        .subscribe((todos: Todo[]) => todos
+          .filter((todo) =>  todo.isCompleted)
+          .map((todo: Todo) => this.deleteTodo(todo)))
+        .unsubscribe();
+  }
 }
