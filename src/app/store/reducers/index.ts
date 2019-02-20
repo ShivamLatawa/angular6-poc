@@ -1,4 +1,4 @@
-import { TodoReducer } from '../store/reducer';
+import { TodoReducer } from './reducer';
 
 export const reducers = {
   todos: TodoReducer,

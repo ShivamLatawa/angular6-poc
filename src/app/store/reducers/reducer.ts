@@ -1,5 +1,5 @@
-import * as TodoActions from '../store/actions';
-import { Todo } from '../model/todo';
+import * as TodoActions from '../actions';
+import { Todo } from '../../model/todo';
 
 const initialState: Todo[] = [];
 
